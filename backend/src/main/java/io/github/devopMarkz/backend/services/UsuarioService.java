@@ -2,8 +2,10 @@ package io.github.devopMarkz.backend.services;
 
 import io.github.devopMarkz.backend.model.Usuario;
 import io.github.devopMarkz.backend.repositories.UsuarioRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -17,6 +19,11 @@ public class UsuarioService {
     @Transactional
     public Usuario insertUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Usuario> findAllUsuarios() {
+        return usuarioRepository.findAll();
     }
 
 }
