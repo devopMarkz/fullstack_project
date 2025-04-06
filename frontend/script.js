@@ -24,4 +24,5 @@ botao.addEventListener('click', async function(event){
         alert("Erro");
     }
 
+    form.reset();
 });
